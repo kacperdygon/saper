@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://glc6xl0nypuk"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/MenuManager.cs" id="1_srpsh"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="MenuUI" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuUI"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuUI/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuUI/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "MINESWEEPER"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Bomb count"
+
+[node name="BombAmountSpinBox" type="SpinBox" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 300.0
+value = 1.0
+alignment = 1
+
+[node name="Label2" type="Label" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Horizontal board size  "
+
+[node name="HorizontalBoardSizeSpinBox" type="SpinBox" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 3.0
+max_value = 300.0
+value = 3.0
+alignment = 1
+
+[node name="Label3" type="Label" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Vertical board size"
+
+[node name="VerticalBoardSizeSpinBox" type="SpinBox" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 3.0
+max_value = 300.0
+value = 3.0
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MenuUI/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start game"
+
+[node name="MenuManager" type="Node" parent="."]
+script = ExtResource("1_srpsh")

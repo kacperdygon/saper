@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://bs4ex6pen8d4b"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/CellGenerator.cs" id="1_8eifl"]
+[ext_resource type="Script" path="res://Assets/Scripts/Camera2d.cs" id="2_y034f"]
+[ext_resource type="Script" path="res://Assets/Scripts/GameManager.cs" id="3_y8ouf"]
+[ext_resource type="Texture2D" uid="uid://bmxbs06lre5j3" path="res://Assets/Sprites/bomb-icon.png" id="4_fhy2m"]
+[ext_resource type="Script" path="res://Assets/Scripts/GameOverButton.cs" id="6_ou6jf"]
+[ext_resource type="Texture2D" uid="uid://c8m4cprjhxkif" path="res://Assets/Sprites/cell-icon.png" id="6_s46q6"]
+
+[node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_y8ouf")
+
+[node name="Board" type="Node2D" parent="."]
+
+[node name="CellGenerator" type="Node" parent="." node_paths=PackedStringArray("progressBar", "progressLabel", "board", "gameManager")]
+script = ExtResource("1_8eifl")
+progressBar = NodePath("../ui/CenterContainer/PanelContainer2/MarginContainer/VBoxContainer/ProgressBar")
+progressLabel = NodePath("../ui/CenterContainer/PanelContainer2/MarginContainer/VBoxContainer/Label")
+board = NodePath("../Board")
+gameManager = NodePath("../GameManager")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 81)
+zoom = Vector2(4, 4)
+position_smoothing_speed = 10.0
+script = ExtResource("2_y034f")
+
+[node name="ui" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="PanelContainer" type="PanelContainer" parent="ui"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 47.0
+offset_bottom = 41.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ui/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -3
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = -3
+
+[node name="GridContainer" type="GridContainer" parent="ui/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="BombIcon" type="TextureRect" parent="ui/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_fhy2m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BombAmount" type="Label" parent="ui/PanelContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 16
+text = "50"
+
+[node name="UnrevealedCellIcon" type="TextureRect" parent="ui/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_s46q6")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="UnrevealedCellAmount" type="Label" parent="ui/PanelContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "400"
+
+[node name="CenterContainer" type="CenterContainer" parent="ui"]
+offset_right = 576.0
+offset_bottom = 324.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GameOverPanel" type="PanelContainer" parent="ui/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ui/CenterContainer/GameOverPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/CenterContainer/GameOverPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="GameConclusionLabel" type="Label" parent="ui/CenterContainer/GameOverPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "You lost!"
+horizontal_alignment = 1
+
+[node name="GameOverButton" type="Button" parent="ui/CenterContainer/GameOverPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Return to menu"
+script = ExtResource("6_ou6jf")
+
+[node name="PanelContainer2" type="PanelContainer" parent="ui/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ui/CenterContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/CenterContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ui/CenterContainer/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Loading..."
+
+[node name="ProgressBar" type="ProgressBar" parent="ui/CenterContainer/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2

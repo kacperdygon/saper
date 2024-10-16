@@ -1,0 +1,90 @@
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://gwlg80hcpu8r"]
+
+[ext_resource type="FontFile" uid="uid://psd1e057ljxq" path="res://Assets/Fonts/mago3.ttf" id="1_shnu7"]
+[ext_resource type="Texture2D" uid="uid://reenbmntt3bb" path="res://Assets/Sprites/gui-panel.png" id="2_a62wt"]
+[ext_resource type="Texture2D" uid="uid://dllymd7vt0yv3" path="res://Assets/Sprites/gui-panel-darker.png" id="2_j5ghx"]
+[ext_resource type="Texture2D" uid="uid://b21dxo0qq8bnj" path="res://Assets/Sprites/progress-bar.png" id="4_aeq8s"]
+[ext_resource type="Texture2D" uid="uid://ct2ij0lxu7eo" path="res://Assets/Sprites/spinbox-arrows.png" id="4_k2pu2"]
+[ext_resource type="Texture2D" uid="uid://b6wih5x7c2m47" path="res://Assets/Sprites/progress-bar-fill.png" id="5_hilst"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rpitt"]
+texture = ExtResource("2_j5ghx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tnrb"]
+texture = ExtResource("2_j5ghx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.76662, 0.76662, 0.76662, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klire"]
+texture = ExtResource("2_j5ghx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7lrc"]
+modulate_color = Color(0.67069, 0.67069, 0.67069, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbgyt"]
+texture = ExtResource("2_j5ghx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.764706, 0.764706, 0.764706, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bng5"]
+texture = ExtResource("2_j5ghx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_me1le"]
+texture = ExtResource("2_a62wt")
+texture_margin_left = 3.0
+texture_margin_top = 7.0
+texture_margin_right = 3.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocdg7"]
+texture = ExtResource("4_aeq8s")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0htf8"]
+texture = ExtResource("5_hilst")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[resource]
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_shnu7")
+Button/styles/focus = SubResource("StyleBoxTexture_rpitt")
+Button/styles/hover = SubResource("StyleBoxTexture_4tnrb")
+Button/styles/normal = SubResource("StyleBoxTexture_klire")
+Button/styles/pressed = SubResource("StyleBoxTexture_o7lrc")
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_shnu7")
+LineEdit/font_sizes/font_size = 32
+LineEdit/fonts/font = ExtResource("1_shnu7")
+LineEdit/styles/focus = SubResource("StyleBoxTexture_dbgyt")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_4bng5")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_me1le")
+ProgressBar/fonts/font = ExtResource("1_shnu7")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_ocdg7")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_0htf8")
+SpinBox/icons/updown = ExtResource("4_k2pu2")
