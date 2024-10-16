@@ -15,10 +15,6 @@ run/main_scene="res://Assets/Scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-GdTaskPlayerLoopAutoload="*res://addons/GDTask/Autoload/GDTaskPlayerLoopAutoload.cs"
-
 [dotnet]
 
 project/assembly_name="saper"

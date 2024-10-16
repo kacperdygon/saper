@@ -18,8 +18,7 @@ public partial class CellGenerator : Node
 	public override void _Ready()
 	{
 		packedCell = GD.Load<PackedScene>("res://Assets/Scenes/cell.tscn");
-		Thread thread = new(GenerateBoard);
-		thread.Start();
+		GenerateBoard();
 
 	}
 
@@ -42,16 +41,10 @@ public partial class CellGenerator : Node
 	public void GenerateBoard()
 	{
 
-		// GenerateCells();
-		// GenerateBombs();
-		// AssignBombAroundNumbers();
-		// QueueFree();
-
-		CallDeferred(MethodName.GenerateCells);
-		CallDeferred(MethodName.GenerateBombs);
-		CallDeferred(MethodName.AssignBombAroundNumbers);
-		CallDeferred(MethodName.HideProgressPanel);
-		// QueueFree();
+		GenerateCells();
+		GenerateBombs();
+		AssignBombAroundNumbers();
+		QueueFree();
 
 	}
 
@@ -84,7 +77,6 @@ public partial class CellGenerator : Node
 				currentCellPosition.X++;
 			}
 
-			UpdateProgressBar(i / cellNumber * 100);
 
 
 
@@ -119,8 +111,6 @@ public partial class CellGenerator : Node
 					break;
 				}
 			}
-
-			UpdateProgressBar(i / bombAmount * 100);
 
 		}
 
@@ -161,8 +151,6 @@ public partial class CellGenerator : Node
 				currentCell.BombsAround = bombsAround;
 
 				cellsIterated++;
-
-				UpdateProgressBar(cellsIterated / cellsTotalNumber);
 
 
 			}
